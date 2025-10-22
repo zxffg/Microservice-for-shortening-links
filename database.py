@@ -12,6 +12,7 @@ class Link(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     url: Mapped[str] = mapped_column(String)
     short_code: Mapped[str] = mapped_column(String(9), nullable=False)
+    short_url: Mapped[str] = mapped_column(String)
 
 engine = create_engine('sqlite:///lincore.db')
 Base.metadata.create_all(engine)

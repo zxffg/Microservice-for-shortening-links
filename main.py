@@ -50,7 +50,7 @@ async def link_create(link: LinkCreate, db: Session = Depends(get_db)):
     code = generate_code()
     short_url = f"{base_url}{code}"
     db_link = Link(url=link.link, short_code=code, short_url=short_url)
-    if validators.url(link.link):   
+    if validators.url(link.link) == True:   
         db.add(db_link)
         db.commit()
         db.refresh(db_link)
